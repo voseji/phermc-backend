@@ -37,7 +37,7 @@ class RegistrationController extends Controller
         $registration->facilityName = $request->facilityName;
         $registration->facilityTypeID = $request->facilityTypeID;
         $registration->facilityStatusID = $request->facilityStatusID;
-        $registration->processingStage = $request->processingStage;
+        $registration->processingStageID = $request->processingStageID;
         $registration->processingStageDate = $request->processingStageDate;
         $registration->registrationDate = $request->registrationDate;
         $registration->licenseRenewalDate = $request->licenseRenewalDate;
@@ -87,14 +87,14 @@ class RegistrationController extends Controller
      */
     public function show($id)
     {
-        if ($products = Products::find($id)) {
+        if ($products = Registration::find($id)) {
             return response()->json([
-                "message" => "Product found:",
+                "message" => "Registration found:",
                 "data" => $products
             ], 200);
         } else {
             return response()->json([
-                "message" => "Sorry this Product does not exist or wrong product code supplied."
+                "message" => "Sorry this Registration does not exist or wrong eID supplied."
             ], 404);
         }
     }
@@ -108,8 +108,8 @@ class RegistrationController extends Controller
     public function edit(Request $request, $id)
     // public function updateStudent(Request $request, $id) {
     {
-        if (Products::where('productCode', $id)->exists()) {
-            $products = Products::find($id);
+        if (Registration::where('productCode', $id)->exists()) {
+            $products = Registration::find($id);
             $products->productCode = is_null($request->productCode) ? $products->productCode : $request->productCode;
             $products->productName = is_null($request->productName) ? $products->productName : $request->productName;
             $products->productDescription = is_null($request->productDescription) ? $products->productDescription : $request->productDescription;
@@ -139,8 +139,8 @@ class RegistrationController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        if (Products::where('productCode', $id)->exists()) {
-            $products = Products::find($id);
+        if (Registration::where('productCode', $id)->exists()) {
+            $products = Registration::find($id);
             $products->delete();
 
             return response()->json([

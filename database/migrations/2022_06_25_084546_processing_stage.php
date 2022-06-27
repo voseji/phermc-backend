@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('processing_stage', function (Blueprint $table) {
             // $table->engine = 'InnoDB';
         $table->id();
-        $table->string('processingStageID');
+        $table->string('processingStageID')->unique();
         $table->string('processingStage')->nullable();
         $table->timestamps();
         $table->softDeletes();
