@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inspection extends Model
 {
-    use HasFactory;
+    protected $table = 'inspection';
+    protected $primaryKey = 'inspectionID';
+    protected $fillable = ['inspectionID', 'eID', 'registrationNumber'];
 }

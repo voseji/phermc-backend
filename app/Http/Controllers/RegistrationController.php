@@ -26,8 +26,8 @@ class RegistrationController extends Controller
     {
         $this->validate($request, [
             'eID' => 'required|string',
-            'KIV' => 'required|numeric',
-            'registrationNumber' => 'required|numeric',
+            'KIV' => 'required|string',
+            'registrationNumber' => 'required|string',
             
         ]);
         $registration = new Registration();

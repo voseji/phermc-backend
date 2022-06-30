@@ -19,7 +19,7 @@ return new class extends Migration
         $table->increments('id');
         $table->string('eID')->unique();
         $table->string('KIV')->nullable();
-        $table->integer('registrationNumber')->unique();
+        $table->string('registrationNumber')->unique();
         // $table->string('registrationNumber')->nullable();
         $table->string('facilityName')->nullable();
         $table->string('facilityTypeID')->nullable();

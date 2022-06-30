@@ -17,11 +17,11 @@ return new class extends Migration
             $table->engine = 'InnoDB';
         $table->id();
         $table->string('inspectionId');
-        $table->integer('registrationNumber');
+        $table->string('registrationNumber');
         $table->string('eID')->nullable();
-        $table->string('inspectionType')->nullable();
+        $table->string('inspectionTypeID')->nullable();
         $table->string('inspectionDate')->nullable();
-        $table->string('team')->nullable();
+        $table->string('teamID')->nullable();
         $table->string('teamLeader')->nullable()->comment('Application processing stage');;
         $table->string('action')->nullable();
         $table->string('participants')->nullable();

@@ -7,7 +7,8 @@ use App\Http\Controllers\FacilityStatusController;
 use App\Http\Controllers\ProcessingStageController;
 use App\Http\Controllers\InspectionController;
 use App\Http\Controllers\FacilityTypeController;
-// use App\Http\Controllers\ProcessingStageController;
+use App\Http\Controllers\InspectionTypeController;
+use App\Http\Controllers\TeamsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -48,11 +49,11 @@ Route::get('/processing_stage/{processingStageID}', [ProcessingStageController::
 Route::patch('/processing_stage/{processingStageID}', [ProcessingStageController::class, 'edit']);
 Route::delete('/processing_stage/{processingStageID}', [ProcessingStageController::class, 'destroy']);
 
-Route::get('/inspection', [ProcessingStageController::class, 'index']);
-Route::post('/inspection', [ProcessingStageController::class, 'create']);
-Route::get('/inspection/{inspectionID}', [ProcessingStageController::class, 'show']);
-Route::patch('/inspection/{processingStageID}', [ProcessingStageController::class, 'edit']);
-Route::delete('/inspection/{processingStageID}', [ProcessingStageController::class, 'destroy']);
+Route::get('/inspection', [InspectionController::class, 'index']);
+Route::post('/inspection', [InspectionController::class, 'create']);
+Route::get('/inspection/{inspectionID}', [InspectionController::class, 'show']);
+Route::patch('/inspection/{processingStageID}', [InspectionController::class, 'edit']);
+Route::delete('/inspection/{processingStageID}', [InspectionController::class, 'destroy']);
 
 Route::get('/facility_type', [FacilityTypeController::class, 'index']);
 Route::post('/facility_type', [FacilityTypeController::class, 'create']);
@@ -60,9 +61,15 @@ Route::get('/facility_type/{facilityTypeID}', [FacilityTypeController::class, 's
 Route::patch('/facility_type/{facilityTypeID}', [FacilityTypeController::class, 'edit']);
 Route::delete('/facility_type/{facilityTypeID}', [FacilityTypeController::class, 'destroy']);
 
-Route::get('/processing_stage', [ProcessingStageController::class, 'index']);
-Route::post('/processing_stage', [ProcessingStageController::class, 'create']);
-Route::get('/processing_stage/{processingStageID}', [ProcessingStageController::class, 'show']);
-Route::patch('/processing_stage/{processingStageID}', [ProcessingStageController::class, 'edit']);
-Route::delete('/processing_stage/{processingStageID}', [ProcessingStageController::class, 'destroy']);
+Route::get('/inspection_type', [InspectionTypeController::class, 'index']);
+Route::post('/inspection_type', [InspectionTypeController::class, 'create']);
+Route::get('/inspection_type/{inspectionTypeID}', [InspectionTypeController::class, 'show']);
+Route::patch('/inspection_type/{inspectionTypeID}', [InspectionTypeController::class, 'edit']);
+Route::delete('/inspection_type/{inspectionTypeID}', [InspectionTypeController::class, 'destroy']);
+
+Route::get('/teams', [TeamsController::class, 'index']);
+Route::post('/teams', [TeamsController::class, 'create']);
+Route::get('/teams/{teamID}', [TeamsController::class, 'show']);
+Route::patch('/teams/{teamID}', [TeamsController::class, 'edit']);
+Route::delete('/teams/{teamID}', [TeamsController::class, 'destroy']);
 
