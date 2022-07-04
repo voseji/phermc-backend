@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('team_members', function (Blueprint $table) {
+        Schema::create('area_councils', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->string('teamID')->unique();
-            $table->string('memberID');
-            $table->string('email')->unique();
+            $table->string('areaCouncilID')->unique();
+            $table->string('areaCouncil')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            // $table->foreign('memberID')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('memberID')->references('memberID')->on('users')->onDelete('cascade');
+            // $table->foreign('registrationNumber')->references('registrationNumber')->on('registration')->onDelete('cascade');
         });
     }
 

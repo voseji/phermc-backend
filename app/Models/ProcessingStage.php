@@ -10,4 +10,9 @@ class ProcessingStage extends Model
     protected $table = 'processing_stage';
     protected $primaryKey = 'prcessingStageID';
     protected $fillable = ['prcessingStageID', 'prcessingStage'];
+    public $incrementing = false;
+
+    public function registration() {
+        return $this->hasMany(Registration::class,'processingStageID','processingStageID');
+    } 
 }

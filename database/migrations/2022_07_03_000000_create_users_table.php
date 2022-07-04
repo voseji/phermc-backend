@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('team_members', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('teamID')->unique();
-            $table->string('memberID');
+            $table->string('name');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('memberID')->unique();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
-            $table->softDeletes();
-            // $table->foreign('memberID')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('memberID')->references('memberID')->on('users')->onDelete('cascade');
+            // $table->foreign('memberID')->references('memberID')->on('team_members')->onDelete('cascade');
         });
     }
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('users');
     }
 };

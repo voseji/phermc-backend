@@ -9,6 +9,11 @@ use App\Http\Controllers\InspectionController;
 use App\Http\Controllers\FacilityTypeController;
 use App\Http\Controllers\InspectionTypeController;
 use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\AreaCouncilController;
+use App\Http\Controllers\DistrictsController;
+use App\Http\Controllers\RegistrationTypeController;
+use App\Http\Controllers\TeamMembersController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,6 +40,15 @@ Route::post('/registration', [RegistrationController::class, 'create']);
 Route::get('/registration/{eID}', [RegistrationController::class, 'show']);
 Route::patch('/registration/{eID}', [RegistrationController::class, 'edit']);
 Route::delete('/registration/{eID}', [RegistrationController::class, 'destroy']);
+
+Route::get('/registration_all/{eID}', [RegistrationController::class, 'registrationAll']);
+Route::get('/facility_stat/{eID}', [RegistrationController::class, 'facilitystatus']);
+Route::get('/proc_stage/{eID}', [RegistrationController::class, 'processingstage']);
+Route::get('/facility_type_all', [RegistrationController::class, 'facilitytypeAll']);
+Route::get('/all_area_councils', [AreaCouncilController::class, 'allDistricts']);
+Route::get('/inspection_all', [InspectionController::class, 'inspectionAll']);
+Route::get('/team_all/{$teamID}', [TeamsController::class, 'teamAll']);
+Route::get('/inspandreg', [RegistrationController::class, 'inspectionAndReg']);
 
 
 Route::get('/facility_status', [FacilityStatusController::class, 'index']);
@@ -67,9 +81,35 @@ Route::get('/inspection_type/{inspectionTypeID}', [InspectionTypeController::cla
 Route::patch('/inspection_type/{inspectionTypeID}', [InspectionTypeController::class, 'edit']);
 Route::delete('/inspection_type/{inspectionTypeID}', [InspectionTypeController::class, 'destroy']);
 
+Route::get('/teamusers/{teamID}', [TeamMembersController::class, 'teamUsers']);
+Route::get('/teams1/{teamID}', [TeamsController::class, 'teamAll']);
+Route::get('/teamsall1', [TeamsController::class, 'teamAll1']);
 Route::get('/teams', [TeamsController::class, 'index']);
 Route::post('/teams', [TeamsController::class, 'create']);
 Route::get('/teams/{teamID}', [TeamsController::class, 'show']);
 Route::patch('/teams/{teamID}', [TeamsController::class, 'edit']);
 Route::delete('/teams/{teamID}', [TeamsController::class, 'destroy']);
 
+Route::get('/area_councils', [AreaCouncilController::class, 'index']);
+Route::post('/area_councils', [AreaCouncilController::class, 'create']);
+Route::get('/area_councils/{areaCouncilID}', [AreaCouncilController::class, 'show']);
+Route::patch('/area_councils/{areaCouncilID}', [AreaCouncilController::class, 'edit']);
+Route::delete('/area_councils/{areaCouncilID}', [AreaCouncilController::class, 'destroy']);
+
+Route::get('/districts', [DistrictsController::class, 'index']);
+Route::post('/districts', [DistrictsController::class, 'create']);
+Route::get('/districts/{districtID}', [DistrictsController::class, 'show']);
+Route::patch('/districts/{districtID}', [DistrictsController::class, 'edit']);
+Route::delete('/districts/{districtID}', [DistrictsController::class, 'destroy']);
+
+Route::get('/registration_type', [RegistrationTypeController::class, 'index']);
+Route::post('/registration_type', [RegistrationTypeController::class, 'create']);
+Route::get('/registration_type/{registrationTypeID}', [RegistrationTypeController::class, 'show']);
+Route::patch('/registration_type/{registrationTypeID}', [RegistrationTypeController::class, 'edit']);
+Route::delete('/registration_type/{registrationTypeID}', [RegistrationTypeController::class, 'destroy']);
+
+Route::get('/team_members', [TeamMembersController::class, 'index']);
+Route::post('/team_members', [TeamMembersController::class, 'create']);
+Route::get('/team_members/{memberID}', [TeamMembersController::class, 'show']);
+Route::patch('/team_members/{memberID}', [TeamMembersController::class, 'edit']);
+Route::delete('/team_members/{memberID}', [TeamMembersController::class, 'destroy']);

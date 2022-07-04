@@ -20,7 +20,6 @@ return new class extends Migration
         $table->string('eID')->unique();
         $table->string('KIV')->nullable();
         $table->string('registrationNumber')->unique();
-        // $table->string('registrationNumber')->nullable();
         $table->string('facilityName')->nullable();
         $table->string('facilityTypeID')->nullable();
         $table->string('facilityStatusID')->nullable();
@@ -35,8 +34,8 @@ return new class extends Migration
         $table->string('association')->nullable();
         $table->string('coveringProfessional')->nullable()->comment('Name of covering doctor or lab scientist');;
         $table->string('facilityAddress')->nullable();
-        $table->string('district')->nullable();
-        $table->string('areaCouncil')->nullable();
+        $table->string('districtID')->nullable();
+        $table->string('areaCouncilID')->nullable();
         $table->string('facilityPhoneNumber')->nullable();
         $table->string('facilityEmail')->nullable();
         $table->string('beds')->nullable();
@@ -44,7 +43,7 @@ return new class extends Migration
         $table->string('staff')->nullable();
         $table->string('staffDocComplete')->nullable();
         $table->string('docCompleteDate')->nullable();
-        $table->string('registrationType')->nullable();
+        $table->string('registrationTypeID')->nullable();
         $table->string('captureDate')->nullable()->comment('First capture date');;
         $table->string('updatedBy')->nullable();
         $table->string('pin')->nullable();

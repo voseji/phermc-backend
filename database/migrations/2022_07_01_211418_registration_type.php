@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\RegistrationType;
 
 return new class extends Migration
 {
@@ -13,16 +14,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('team_members', function (Blueprint $table) {
+        Schema::create('registration_type', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->string('teamID')->unique();
-            $table->string('memberID');
-            $table->string('email')->unique();
+            $table->string('registrationTypeID')->unique();
+            $table->string('registrationType')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            // $table->foreign('memberID')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('memberID')->references('memberID')->on('users')->onDelete('cascade');
+            
         });
     }
 

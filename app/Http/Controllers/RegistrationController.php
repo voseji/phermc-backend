@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Registration;
+use App\Models\FacilityType;
+use App\Models\FacilityStatus;
+use DB;
 
 class RegistrationController extends Controller
 {
@@ -48,8 +51,8 @@ class RegistrationController extends Controller
         $registration->association = $request->association;
         $registration->coveringProfessional = $request->coveringProfessional;
         $registration->facilityAddress = $request->facilityAddress;
-        $registration->district = $request->district;
-        $registration->areaCouncil = $request->areaCouncil;
+        $registration->districtID = $request->districtID;
+        $registration->areaCouncilID = $request->areaCouncilID;
         $registration->facilityPhoneNumber = $request->facilityPhoneNumber;
         $registration->facilityEmail = $request->facilityEmail;
         $registration->beds = $request->beds;
@@ -57,7 +60,7 @@ class RegistrationController extends Controller
         $registration->staff = $request->staff;
         $registration->staffDocComplete = $request->staffDocComplete;
         $registration->docCompleteDate = $request->docCompleteDate;
-        $registration->registrationType = $request->registrationType;
+        $registration->registrationTypeID = $request->registrationTypeID;
         $registration->captureDate = $request->captureDate;
         $registration->updatedBy = $request->updatedBy;
         $registration->pin = $request->pin;
@@ -152,5 +155,44 @@ class RegistrationController extends Controller
             ], 404);
         }
     }
+
+public function registrationAll($eID)
+{
+    $facilitytype = Registration::with(['facilityType', 'facilityStatus', 'processingStage'])
+    // ->select(['facility_type.facilityType', 'facility_type.facilityTypeID', 'registration.facilityTypeID'])
+    ->find($eID);
+    return $facilitytype;
+}
+
+public function facilitytypeAll()
+{
+    $facilitytype = Registration::with(['facilityType', 'facilityStatus', 'processingStage'])
+    // ->select(['facility_type.facilityType', 'facility_type.facilityTypeID', 'registration.facilityTypeID'])
+    ->get();
+    return $facilitytype;
+}
+
+public function facilitystatus($eID)
+{
+    $facilitystatus = Registration::with(['facilityStatus'])
+    // ->select(['facility_type.facilityType', 'facility_type.facilityTypeID', 'registration.facilityTypeID'])
+    ->find($eID);
+    return $facilitystatus;
+}
+
+public function processingstage($eID)
+{
+    $processingstage = Registration::with(['processingStage'])
+    ->find($eID);
+    return $processingstage;
+}
+
+public function inspectionAndReg()
+{
+    $table = Registration::with(['Inspection'])
+    ->get();
+    return $table;
+}
+
 }
 

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inspection;
+use App\Models\Registration;
+use App\Models\InspectionType;
+use App\Models\Teams;
+
 class InspectionController extends Controller
 {
     public function index()
@@ -29,4 +33,14 @@ class InspectionController extends Controller
         "message" => "Inspection capture successful"
     ], 201);
 }
+
+public function inspectionAll()
+{
+    $table = Inspection::with(['InspectionType', 'Teams'])
+    ->get();
+    return $table;
+}
+
+
+
 }

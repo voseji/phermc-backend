@@ -10,5 +10,9 @@ class FacilityType extends Model
     protected $table = 'facility_type';
     protected $primaryKey = 'facilityTypeID';
     protected $fillable = ['facilityTypeID', 'facilityType'];
-}
+    public $incrementing = false;
 
+    public function registration() {
+        return $this->hasMany(Registration::class,'facilityTypeID','facilityTypeID');
+    }
+}
