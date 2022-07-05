@@ -41,6 +41,11 @@ public function inspectionAll()
     return $table;
 }
 
-
+public function inspectionAll2($inspectionID)
+{
+    $table = Inspection::with(['InspectionType', 'Teams'])
+    ->find($inspectionID);
+    return $table;
+}
 
 }

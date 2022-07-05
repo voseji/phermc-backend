@@ -18,11 +18,13 @@ return new class extends Migration
             $table->id();
             $table->string('teamID')->unique();
             $table->string('memberID');
+            $table->string('name');
             $table->string('email')->unique();
+            $table->string('phoneNumber');
             $table->timestamps();
             $table->softDeletes();
             // $table->foreign('memberID')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('memberID')->references('memberID')->on('users')->onDelete('cascade');
+            // $table->foreign('memberID')->references('memberID')->on('users')->onDelete('cascade');
         });
     }
 

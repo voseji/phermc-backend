@@ -41,6 +41,7 @@ Route::get('/registration/{eID}', [RegistrationController::class, 'show']);
 Route::patch('/registration/{eID}', [RegistrationController::class, 'edit']);
 Route::delete('/registration/{eID}', [RegistrationController::class, 'destroy']);
 
+Route::get('/inspectionall/{inspectionID}', [InspectionController::class, 'inspectionAll2']);
 Route::get('/registration_all/{eID}', [RegistrationController::class, 'registrationAll']);
 Route::get('/facility_stat/{eID}', [RegistrationController::class, 'facilitystatus']);
 Route::get('/proc_stage/{eID}', [RegistrationController::class, 'processingstage']);

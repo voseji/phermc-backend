@@ -24,6 +24,8 @@ class TeamMembersController extends Controller
     $team->teamID = $request->teamID;
     $team->memberID = $request->memberID;
     $team->email = $request->email;
+    $team->name = $request->name;
+    $team->phoneNumber = $request->phoneNumber;
     // $facility_status->KIV = $request->KIV;
     $team->save();
     return response()->json([

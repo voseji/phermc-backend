@@ -29,6 +29,10 @@ class Registration extends Model
         return $this->belongsTo(FacilityType::class, 'facilityTypeID', 'facilityTypeID');
     }
 
+    public function registrationType() {
+        return $this->belongsTo(RegistrationType::class, 'registrationTypeID', 'registrationTypeID');
+    }
+
     public function facilityStatus() {
         return $this->belongsTo(FacilityStatus::class, 'facilityStatusID', 'facilityStatusID');
     }
@@ -37,7 +41,15 @@ class Registration extends Model
         return $this->belongsTo(ProcessingStage::class, 'processingStageID', 'processingStageID');
     }
 
-    public function inspections() {
+    public function inspectionsall22() {
         return $this->hasMany(Inspection::class, 'eID', 'eID');
+    }
+
+    public function districts() {
+        return $this->belongsTo(Districts::class, 'districtID', 'districtID');
+    }
+
+    public function areacouncilss() {
+        return $this->belongsTo(AreaCouncil::class, 'areaCouncilID', 'areaCouncilID');
     }
 }

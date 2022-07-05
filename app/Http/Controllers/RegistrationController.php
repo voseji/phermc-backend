@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Registration;
 use App\Models\FacilityType;
 use App\Models\FacilityStatus;
+use App\Models\Districts;
+use App\Models\AreaCouncil;
+use App\Models\RegistrationType;
+use App\Models\Inspection;
+
+
 use DB;
 
 class RegistrationController extends Controller
@@ -158,7 +164,7 @@ class RegistrationController extends Controller
 
 public function registrationAll($eID)
 {
-    $facilitytype = Registration::with(['facilityType', 'facilityStatus', 'processingStage'])
+    $facilitytype = Registration::with(['facilityType', 'facilityStatus', 'processingStage', 'RegistrationType', 'Districts.AreaCouncil', 'Inspection'])
     // ->select(['facility_type.facilityType', 'facility_type.facilityTypeID', 'registration.facilityTypeID'])
     ->find($eID);
     return $facilitytype;

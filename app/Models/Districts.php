@@ -16,4 +16,8 @@ class Districts extends Model
     public function areacouncil() {
         return $this->belongsTo(AreaCouncil::class, 'areaCouncilID', 'areaCouncilID');
     }
+
+    public function registratiosn() {
+        return $this->belongsTo(Districts::class, 'districtID', 'districtID');
+    }
 }

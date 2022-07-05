@@ -20,7 +20,7 @@ class Inspection extends Model
         return $this->belongsTo(Teams::class, 'teamID', 'teamID');
     }
 
-    public function registrations() {
+    public function registrationsAll2() {
         return $this->belongsTo(Registration::class, 'eID', 'eID');
     }
 }

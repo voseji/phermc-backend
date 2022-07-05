@@ -17,7 +17,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             $table->string('teamID')->unique();
-            $table->string('team')->nullable();
+            $table->string('team')->unique();
             $table->timestamps();
             $table->softDeletes();
             // $table->foreign('registrationNumber')->references('registrationNumber')->on('registration')->onDelete('cascade');

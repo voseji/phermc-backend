@@ -13,7 +13,7 @@ class RegistrationType extends Model
     protected $fillable = ['registrationTypeID', 'registrationType'];
     public $incrementing = false;
 
-    public function registration() {
-        return $this->hasMany(Registration::class,'registrationTypeID','registrationTypeID');
+    public function registrationType() {
+        return $this->belongsTo(Registration::class,'registrationTypeID','registrationTypeID');
     } 
 }

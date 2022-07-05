@@ -16,4 +16,8 @@ class AreaCouncil extends Model
     public function districts() {
         return $this->hasMany(Districts::class,'areaCouncilID','areaCouncilID');
     }
+
+    public function areacounciltoregistration() {
+        return $this->belongsTo(Registration::class, 'areaCouncilID', 'areaCouncilID');
+    }
 }

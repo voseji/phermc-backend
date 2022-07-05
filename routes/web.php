@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return $users = \App\Models\Users::with(['teams'])->get();
+    dd($users);
     return view('welcome');
 });

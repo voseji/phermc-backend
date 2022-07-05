@@ -11,7 +11,7 @@ class TeamMembers extends Model
     use HasFactory;
     protected $table = 'team_members';
     protected $primaryKey = 'teamID';
-    protected $fillable = ['teamID', 'memberID', 'email'];
+    protected $fillable = ['teamID', 'memberID', 'email', 'phoneNumber'];
     public $incrementing = false;
 
     public function teams() {
